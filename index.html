@@ -1,6 +1,22 @@
  <html>
-  <head> Entete de ma page
+  <head>
+     <title> jQuery 1</title>
+     <meta charset='utf-8'> 
+     <script src="js/jquery-3.5.1.js"></script>
   </head>
    <body>
+         <h1>Découvrir le framework jQuery</h1>
+         <p>p1 juste pour tester</p>
+         <p>p2 une autre ligne</p>
+         <p>p3 encore une autre ligne</p>
+         <select name='loc'>
+            <option value='1'>Paris</option>
+            <option value='2' selected=“selected”>Lille</option>
+            <option value='3'>Marseille</option>
+            </select>
+         <script>
+            //$('.class1','.class2').hide();
+            $('select[name=‘loc’] option:selected').val();
+         </script>
    </body>
 </html>
