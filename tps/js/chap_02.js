@@ -1,3 +1,3 @@
 $(document).ready(function(){
-    $("div#titreCV").html("Aventurière et archéologue");
+    $("div.titreCV").html("Aventurière et archéologue");
 });
