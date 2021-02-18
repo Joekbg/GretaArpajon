@@ -1,3 +1,0 @@
-$(function() {
-	$("#myWidget").accordion();
-});
