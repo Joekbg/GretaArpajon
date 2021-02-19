@@ -1,0 +1,1 @@
+cp -r ./ /c/wamp64/www/
