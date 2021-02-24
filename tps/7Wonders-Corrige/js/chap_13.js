@@ -1,5 +1,8 @@
 $(document).ready(function() {
-	// Mon plug-in
+	/* Mon plug-in
+    Vous pouvez jouer avec les offset pour voir 
+    le positionnement de votre infobulle
+    */
 	var options = {
 		offsetX : 30,
 		offsetY : 5,

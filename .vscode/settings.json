@@ -1,0 +1,139 @@
+{
+    "deploy": {
+        "targets": [
+            {
+                "type": "sftp",
+                "name": "My SFTP folder",
+                "description": "A SFTP folder",
+                "dir": "/my_package_files",
+                "host": "localhost", "port": 22,
+                "user": "tester", "password": "password",
+
+                "checkBeforeDeploy": true,
+
+                "mappings": [
+                    {
+                        "source": "dir/of/files/that/should/be/mapped",
+                        "target": "dir/on/target"
+                    }
+                ]
+            },
+            {
+                "type": "ftp",
+                "name": "My FTP folder",
+                "description": "A FTP folder",
+                "dir": "/my_package_files",
+                "host": "localhost", "port": 21,
+                "user": "anonymous", "password": "",
+
+                "deployed": [
+                    {
+                        "type": "sql",
+                        "engine": "mysql",
+
+                        "queries": [
+                            "TRUNCATE TABLE `debug`",
+                            "TRUNCATE TABLE `logs`"
+                        ]
+                    },
+                    {
+                        "target": "https://github.com/mkloubert"
+                    }
+                ]
+            },
+            {
+                "type": "local",
+                "name": "Wamp local",
+                "description": "A local folder",
+                "dir": "C:/wamp64/www"
+            },
+            {
+                "type": "local",
+                "name": "My network folder",
+                "description": "A SMB shared network folder",
+                "dir": "\\\\MyServer\\my_package_files"
+            },
+            {
+                "type": "zip",
+                "name": "My ZIP file",
+                "description": "Create a ZIP file in a target directory",
+                "target": "E:/test"
+            },
+            {
+                "type": "mail",
+                "name": "My mail server",
+                "description": "An email deployer",
+                "host": "smtp.example.com", "port": 465,
+                "secure": true, "requireTLS": true,
+                "user": "mkloubert@example.com", "password": "P@assword123!",
+                "from": "mkloubert@example.com",
+                "to": "tm@example.com, ys@example.com"
+            },
+            {
+                "type": "script",
+                "name": "My script",
+                "description": "A deploy script",
+                "script": "E:/test/deploy.js",
+                "options": {
+                    "TM": 5979,
+                    "MK": "23979"
+                }
+            },
+            {
+                "type": "http",
+                "name": "My HTTP service",
+                "description": "A HTTP service on a HTTP server, e.g.",
+                "url": "https://host.example.com/webdav/?file=${VSDeploy-File}",
+                "user": "mkloubert", "password": "P@ssword123!"
+            },
+            {
+                "type": "remote",
+                "name": "My remote target",
+                "description": "Some remote VS Code instances to deploy to",
+                "hosts": ["localhost", "192.168.0.101", "192.168.0.101:5979"]
+            },
+            {
+                "type": "app",
+                "name": "My App",
+                "description": "An app to call",
+                "app": "E:/test/deploy.cmd",
+                "arguments": ["a", "b", "c"]
+            },
+            {
+                "type": "batch",
+                "name": "My Batch",
+                "description": "A batch operation",
+                "targets": ["My mail server", "My ZIP file"]
+            },
+            {
+                "type": "azureblob",
+                "name": "My Azure blob storage",
+                "description": "An container in an Azure blob storage",
+                "container": "my-container",
+                "account": "my-storage-account",
+                "accessKey": "<ACCESS-KEY-FROM-AZURE-PORTAL>"
+            },
+            {
+                "type": "s3bucket",
+                "name": "My Amazon Bucket",
+                "description": "An Amazon AWS S3 bucket",
+                "bucket": "my-bucket"
+            },
+            {
+                "type": "dropbox",
+                "name": "My DropBox folder",
+                "description": "Deploy to my DropBox folder",
+
+                "token": "<ACCESS-TOKEN>"
+            },
+            {
+                "type": "api",
+                "name": "My REST API",
+                "description": "Deploys to a vs-rest-api",
+
+                "host": "vscode.example.com",
+                "user": "rgrimes", "password": "lori"
+            }
+        ]
+    }
+}
